@@ -820,9 +820,6 @@ func (f *Manager) failFundingFlow(peer lnpeer.Peer, tempChanID [32]byte,
 	log.Debugf("Failing funding flow for pending_id=%x: %v",
 		tempChanID, fundingErr)
 
-	fmt.Printf("Failing funding flow for pending_id=%x: %v\n",
-		tempChanID, fundingErr)
-
 	ctx, err := f.cancelReservationCtx(
 		peer.IdentityKey(), tempChanID, false,
 	)
