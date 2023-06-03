@@ -296,7 +296,7 @@ func taprootKeyspendSighash(tx *wire.MsgTx, pkScript []byte,
 func (m *MusigSession) SignCommit(tx *wire.MsgTx) (*MusigPartialSig, error) {
 	// If we already have a session, then we don't need to finalize as this
 	// was done up front (symmetric nonce case, like for co-op close).
-	if m.session == nil && m.commitType == localCommit {
+	if m.session == nil {
 		// Before we can sign a new commitment, we'll need to generate
 		// a fresh nonce that'll be sent along side our signature. With
 		// the nonce in hand, we can finalize the session.
